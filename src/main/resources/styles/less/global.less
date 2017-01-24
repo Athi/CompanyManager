@@ -1,0 +1,36 @@
+@application-background-color: hsl(0, 0%, 35%);
+@default-border-color: hsl(0, 0%, 100%);
+
+@component-background-color: hsl(0, 0%, 30%);
+@component-hover-color: hsl(0, 0%, 25%);
+@component-pressed-color: hsl(0, 0%, 20%);
+
+@default-border-width: 2px;
+@default-radius: 0px;
+@default-insets: 0px;
+
+@default-font-size: 14px;
+@default-font-color: white;
+
+.button {
+  -fx-padding: 5 22 5 22;
+  -fx-border-style: none;
+  -fx-background-radius: @default-radius;
+  -fx-border-color: @default-border-color;
+  -fx-border-width: @default-border-width;
+  -fx-background-color: @component-background-color;
+  -fx-background-insets: @default-insets;
+  -fx-border-insets: @default-insets;
+  -fx-font-family: "Segoe UI Semibold";
+  -fx-font-size: @default-font-size;
+  -fx-text-fill: @default-font-color;
+}
+
+.button:hover {
+  -fx-background-color: @component-hover-color;
+}
+
+.button:pressed, .button:default:hover:pressed {
+  .button;
+  -fx-background-color: @component-pressed-color;
+}
