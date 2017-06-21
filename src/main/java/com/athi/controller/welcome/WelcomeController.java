@@ -1,6 +1,5 @@
 package com.athi.controller.welcome;
 
-import com.athi.util.FXMLDefinition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,6 +15,8 @@ import javafx.stage.StageStyle;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
+
+import static com.athi.util.FXMLDefinitionImpl.MAIN;
 
 /**
  * Created by Athi
@@ -38,7 +39,7 @@ public class WelcomeController implements Initializable {
 
     @FXML
     private void enterAction(ActionEvent event) throws Exception { //TODO cos z tym exception???
-        Optional fxml = FXMLDefinition.load(FXMLDefinition.MAIN);
+        Optional fxml = MAIN.load();
         if (fxml.isPresent()) {
             Parent root = (Parent) fxml.get();
             Scene scene = new Scene(root);

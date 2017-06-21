@@ -8,36 +8,18 @@ import java.util.Optional;
 /**
  * Created by mp2.
  */
-public enum FXMLDefinition {
-    WELCOME("welcome/", "welcome"),
-    MAIN("main/", "main"),;
+public interface FXMLDefinition {
 
-    private static final String PATH_PREFIX = "com/athi/";
-    private static final String PATH_SUFIX = ".fxml";
+    String getFXMLPath();
 
-    private final String fxmlPath;
-    private final String fxmlName;
+    String getFXMLName();
 
-    FXMLDefinition(String fxmlPath, String fxmlName) {
-        this.fxmlPath = fxmlPath;
-        this.fxmlName = fxmlName;
-    }
+    default <T> Optional<T> load() {
+        String fxmlPath = getFXMLPath().endsWith("/") ? getFXMLPath() : getFXMLPath() + "/";
+        String fxmlName = getFXMLName().endsWith(".fxml") ? getFXMLName() : getFXMLName() + ".fxml";
+        String fxmlFullPath = fxmlPath + fxmlName;
 
-    public String getFxmlPath() {
-        return fxmlPath;
-    }
-
-    public String getFxmlName() {
-        return fxmlName;
-    }
-
-    public static <T> Optional<T> load(FXMLDefinition fxmlDefinition) {
-        StringBuilder fullPath = new StringBuilder(PATH_PREFIX)
-                .append(fxmlDefinition.getFxmlPath())
-                .append(fxmlDefinition.getFxmlName())
-                .append(PATH_SUFIX);
-
-        URL fxmlResource = Thread.currentThread().getContextClassLoader().getResource(fullPath.toString());
+        URL fxmlResource = Thread.currentThread().getContextClassLoader().getResource(fxmlFullPath);
 
         try {
             return Optional.of(FXMLLoader.load(fxmlResource));
@@ -46,4 +28,5 @@ public enum FXMLDefinition {
             return Optional.empty();
         }
     }
+
 }

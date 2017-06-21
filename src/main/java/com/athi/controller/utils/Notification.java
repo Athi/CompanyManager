@@ -10,8 +10,6 @@ import static javafx.scene.control.Alert.AlertType.*;
  */
 public class Notification {
 
-    private static final String STYLESHEET = "notification.css"; //TODO full path
-
     public static void information(String header, String message) {
         Alert alert = createAlert(INFORMATION, message, header);
         alert.showAndWait();
@@ -60,8 +58,13 @@ public class Notification {
 
     private static Alert createAlert(Alert.AlertType alertType, String message) {
         Alert alert = new Alert(alertType, message);
-        alert.initStyle(StageStyle.UTILITY);
-        alert.getDialogPane().getStylesheets().add(STYLESHEET);
+        alert.initStyle(StageStyle.TRANSPARENT);
+        alert.setResizable(false);
+        alert.getDialogPane().setOnMouseClicked(event -> alert.close());
+
+        String notificationCSS = Thread.currentThread().getContextClassLoader().getResource("styles/css/notification/notification.css").toExternalForm();
+        alert.getDialogPane().getStylesheets().add(notificationCSS);
+        alert.getDialogPane().getStyleClass().add("errorNotification");
         return alert;
     }
 
