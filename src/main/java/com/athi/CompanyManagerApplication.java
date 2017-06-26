@@ -1,6 +1,5 @@
 package com.athi;
 
-import com.athi.controller.utils.Notification;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -25,8 +24,6 @@ public class CompanyManagerApplication extends Application {
             primaryStage.setScene(scene);
             primaryStage.initStyle(StageStyle.UNDECORATED);
             primaryStage.show();
-
-            Notification.error("XASD");
         }
     }
 
