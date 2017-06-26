@@ -47,7 +47,7 @@ public class WelcomeController implements Initializable {
             Stage stage = new Stage();
             stage.initStyle(StageStyle.UNDECORATED);
             stage.setResizable(true);
-            stage.setMaximized(true);
+//            stage.setMaximized(true); //TODO change
             stage.setTitle("TEST APPLICATION"); //TODO change
             stage.setScene(scene);
             stage.show();
