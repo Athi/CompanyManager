@@ -1,3 +1,4 @@
+
 .root {
   -fx-background-color: transparent;
   -fx-fill: transparent;
@@ -24,17 +25,19 @@
 }
 
 .errorNotification {
-  -fx-background-color: darkred;
+  -fx-background-color: @errorNotificationColor;
 }
 
 .warningNotification {
-  -fx-background-color: gold;
+  -fx-background-color: @warningNotificationColor;
 }
 
 .infoNotification {
-  -fx-background-color: lightblue;
+  -fx-background-color: @infoNotificationColor;
 }
 
 .successNotification {
-  -fx-background-color: darkgreen;
+  -fx-background-color: @successNotificationColor;
 }
+
+@import "../styles";

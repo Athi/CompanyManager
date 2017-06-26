@@ -96,6 +96,7 @@
                     <compress>false</compress>
                     <excludes>
                         <exclude>global.less</exclude>
+                        <exclude>styles.less</exclude>
                     </excludes>
                 </configuration>
                 <executions>
